@@ -11,7 +11,7 @@ const contactRoutes = require("./routes/contactRoutes");
 const blogsRoutes = require("./routes/blogsRoutes");
 const branchRoutes = require("./routes/branchRoutes");
 const emailRoutes = require("./routes/emailRoutes");
-const serverless = require('serverless-http');
+const serverless = require("serverless-http");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
@@ -32,10 +32,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
-
-
 // ✅ Định tuyến
 app.use("/api/users", userRoutes);
 app.use("/api/specializations", specializationRoutes);
@@ -48,6 +44,9 @@ app.use("/api/blogs", blogsRoutes);
 app.use("/api/branches", branchRoutes);
 app.use("/api/emails", emailRoutes);
 
+app.get("/", (req, res) => {
+  res.render("Hello from Booking Care API!");
+});
 // ✅ Khởi động server
 // const PORT = process.env.PORT || 8000;
 // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
