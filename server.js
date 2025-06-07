@@ -1,4 +1,5 @@
 const express = require("express");
+const serverless = require("serverless-http");
 const app = express();
 const userRoutes = require("./routes/userRoutes");
 const specializationRoutes = require("./routes/specializationRoutes");
@@ -10,7 +11,7 @@ const contactRoutes = require("./routes/contactRoutes");
 const blogsRoutes = require("./routes/blogsRoutes");
 const branchRoutes = require("./routes/branchRoutes");
 const emailRoutes = require("./routes/emailRoutes");
-
+const serverless = require('serverless-http');
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
@@ -31,6 +32,10 @@ app.use((req, res, next) => {
   next();
 });
 
+
+
+
+
 // ✅ Định tuyến
 app.use("/api/users", userRoutes);
 app.use("/api/specializations", specializationRoutes);
@@ -44,5 +49,6 @@ app.use("/api/branches", branchRoutes);
 app.use("/api/emails", emailRoutes);
 
 // ✅ Khởi động server
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// const PORT = process.env.PORT || 8000;
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports.handler = serverless(app);
