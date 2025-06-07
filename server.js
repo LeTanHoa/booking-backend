@@ -44,7 +44,7 @@ app.use("/api/branches", branchRoutes);
 app.use("/api/emails", emailRoutes);
 
 app.get("/", (req, res) => {
-  res.render("Hello from Booking Care API!");
+  res.json({ message: "Hello from API" });
 });
 // ✅ Khởi động server
 // const PORT = process.env.PORT || 8000;
