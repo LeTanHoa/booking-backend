@@ -11,13 +11,12 @@ const contactRoutes = require("./routes/contactRoutes");
 const blogsRoutes = require("./routes/blogsRoutes");
 const branchRoutes = require("./routes/branchRoutes");
 const emailRoutes = require("./routes/emailRoutes");
-const serverless = require("serverless-http");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 // ✅ Cấu hình CORS dùng thư viện cors
 const corsOptions = {
-  origin: "http://localhost:3000", // client
+  origin: "https://booking-care-three.vercel.app/", // client
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
